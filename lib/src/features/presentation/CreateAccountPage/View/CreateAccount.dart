@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_vscode/src/Colors/colors.dart';
-import 'package:flutter_vscode/src/features/presentation/widgets/back_button.dart';
+import 'package:flutter_vscode/src/features/presentation/commons_widgets/back_button.dart';
+import 'package:flutter_vscode/src/features/presentation/commons_widgets/headers.dart';
+import 'package:flutter_vscode/src/features/presentation/commons_widgets/roundedButton.dart';
 
 class CreateAccount extends StatelessWidget {
   @override
@@ -19,23 +21,25 @@ class CreateAccount extends StatelessWidget {
             padding: EdgeInsets.all(30.0),
             child: Column(
               children: [
-                Text(
-                  "Create an Account",
-                  style: TextStyle(
-                    color: Theme.of(context).primaryColor,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 30.0,
-                  ),
-                ),
+                header_text(
+                    texto: "Create an Account",
+                    color: primaryColor,
+                    fontSize: 30),
                 _usernameInput(context),
                 _emailInput(context),
                 _phoneInput(context),
                 _dateOfBirth(context),
                 _passwordInput(context),
-                _sinUpButton(context),
+                createElevatedButton(
+                    labelButton: 'Sing Up',
+                    color: naranja,
+                    shape: const StadiumBorder(),
+                    func: () {
+                      Navigator.pushNamed(context, 'Login');
+                    }),
                 Container(
-                  padding:
-                      EdgeInsets.symmetric(horizontal: 20.0, vertical: 40.0),
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 20.0, vertical: 40.0),
                   child: const Text(
                     'By Clicking Sign Up you agree to the following Terms and Conditions whitout ',
                     textAlign: TextAlign.center,

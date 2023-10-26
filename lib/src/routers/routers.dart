@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_vscode/src/features/presentation/CreateAccountPage/View/CreateAccount.dart';
 import 'package:flutter_vscode/src/features/presentation/ForgotPasswordPage/View/ForgotPassword.dart';
+import 'package:flutter_vscode/src/features/presentation/SearchPage/View/searchView.dart';
 
 //pages
 import 'package:flutter_vscode/src/features/presentation/WelcomePage/View/WelcomePage.dart';
@@ -13,5 +14,6 @@ final routes = <String, WidgetBuilder>{
   'Login': (BuildContext context) => LoginPage(),
   'ForgotPass': (BuildContext context) => ForgotPassword(),
   'CreateAccount': (BuildContext context) => CreateAccount(),
-  'Tabs': (BuildContext context) => tabsPage()
+  'Tabs': (BuildContext context) => tabsPage(),
+  'Search': (BuildContext context) => SearchPage(),
 };

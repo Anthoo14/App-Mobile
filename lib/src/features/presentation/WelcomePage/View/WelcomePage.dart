@@ -1,6 +1,9 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_vscode/src/Colors/colors.dart';
+import 'package:flutter_vscode/src/features/presentation/commons_widgets/headers.dart';
+import 'package:flutter_vscode/src/features/presentation/commons_widgets/roundedButton.dart';
 
 class WelcomePage extends StatelessWidget {
   @override
@@ -13,9 +16,9 @@ class WelcomePage extends StatelessWidget {
                 image: DecorationImage(
                     fit: BoxFit.cover,
                     image: NetworkImage(
-                        'https://images.unsplash.com/photo-1517433367423-c7e5b0f35086?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2002&q=80'))),
+                        'https://plus.unsplash.com/premium_photo-1673959392807-017ca3e08282?auto=format&fit=crop&q=80&w=1974&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'))),
             child: BackdropFilter(
-              filter: ImageFilter.blur(sigmaX: 1.0, sigmaY: 1.0),
+              filter: ImageFilter.blur(sigmaX: 4.0, sigmaY: 1.0),
               child: Container(
                 color: Colors.black.withOpacity(0.3),
               ),
@@ -25,77 +28,37 @@ class WelcomePage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
-                padding: EdgeInsets.symmetric(horizontal: 50.0),
-                child: const Text(
-                  'DELIVERED FAST FOOD TO YOUR DOOR',
-                  style: TextStyle(
+                  padding: const EdgeInsets.symmetric(horizontal: 50.0),
+                  child: header_text(
+                      texto: 'DELIVERED FAST FOOD TO YOUR DOOR',
                       color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 45.0),
-                ),
-              ),
+                      fontSize: 45.0)),
               Container(
-                padding: EdgeInsets.symmetric(horizontal: 50.0, vertical: 30.0),
-                child: const Text(
-                  'Set exact location to find the right restaurants near you.',
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.w400,
-                      fontSize: 17.0),
-                ),
+                padding: const EdgeInsets.symmetric(
+                    horizontal: 50.0, vertical: 30.0),
+                child: header_text(
+                    texto:
+                        'Set exact location to find the right restaurants near you.',
+                    color: Colors.white,
+                    fontSize: 17.0),
               ),
-              Container(
-                width: 350.0,
-                height: 45.0,
-                margin: EdgeInsets.only(top: 30.0),
-                child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.pushNamed(context, 'Login');
-                    },
-                    style: ElevatedButton.styleFrom(
-                        shape: StadiumBorder(),
-                        backgroundColor:
-                            Theme.of(context).colorScheme.secondary,
-                        elevation: 0.5),
-                    child: const Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          'Log in',
-                          style: TextStyle(color: Colors.white, fontSize: 15.0),
-                        ),
-                      ],
-                    )),
-              ),
-              Container(
-                width: 350.0,
-                height: 45.0,
-                margin: EdgeInsets.only(top: 30.0),
-                child: ElevatedButton(
-                    onPressed: () {},
-                    style: ElevatedButton.styleFrom(
-                        shape: StadiumBorder(),
-                        backgroundColor: Color.fromRGBO(0, 122, 255, 1.0),
-                        elevation: 0.5),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        const Image(
-                          image: AssetImage('assets/facebook.png'),
-                          width: 20.0,
-                          height: 20.0,
-                        ),
-                        Container(
-                          margin: EdgeInsets.only(left: 10.0),
-                          child: const Text(
-                            'Connect whit Facebook',
-                            style:
-                                TextStyle(color: Colors.white, fontSize: 15.0),
-                          ),
-                        ),
-                      ],
-                    )),
-              )
+              createElevatedButton(
+                  labelButton: 'Log in',
+                  color: naranja,
+                  shape: const StadiumBorder(),
+                  func: () {
+                    Navigator.pushNamed(context, 'Login');
+                  }),
+              createElevatedButton(
+                  labelButton: 'Connect with Google',
+                  labelColor: Colors.black,
+                  color: Colors.white,
+                  isWithIcon: true,
+                  shape: const StadiumBorder(),
+                  icon: const AssetImage('assets/google.png'),
+                  func: () {
+                    ;
+                  })
             ],
           )
         ],

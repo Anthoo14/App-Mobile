@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_vscode/src/Colors/colors.dart';
-import 'package:flutter_vscode/src/features/presentation/widgets/back_button.dart';
+import 'package:flutter_vscode/src/features/presentation/commons_widgets/back_button.dart';
+import 'package:flutter_vscode/src/features/presentation/commons_widgets/headers.dart';
+import 'package:flutter_vscode/src/features/presentation/commons_widgets/roundedButton.dart';
 
 class LoginPage extends StatelessWidget {
   @override
@@ -41,39 +43,33 @@ class LoginPage extends StatelessWidget {
                   child: Center(
                     child: Column(
                       children: [
-                        Text(
-                          "Welcome back",
-                          style: TextStyle(
-                            color: Theme.of(context).primaryColor,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 30.0,
-                          ),
-                        ),
-                        const Text(
-                          "Login to you account",
-                          style: TextStyle(
-                            color: Colors.grey,
-                            fontWeight: FontWeight.w500,
-                            fontSize: 15.0,
-                          ),
-                        ),
+                        header_text(
+                            texto: "Welcome back",
+                            color: primaryColor,
+                            fontSize: 30),
+                        header_text(
+                            texto: "Login to you account",
+                            color: gris,
+                            fontSize: 15),
                         _emailInput(),
                         _passwordInput(),
-                        _loginButton(context),
+                        createElevatedButton(
+                            labelButton: 'Log in',
+                            color: naranja,
+                            shape: const StadiumBorder(),
+                            func: () {
+                              Navigator.pushNamed(context, 'Tabs');
+                            }),
                         Container(
                           margin: const EdgeInsets.only(top: 23.0),
                           child: GestureDetector(
                             onTap: () {
                               Navigator.pushNamed(context, 'ForgotPass');
                             },
-                            child: const Text(
-                              'Forgot your password?',
-                              style: TextStyle(
+                            child: header_text(
+                                texto: "Forgot your password?  ",
                                 color: Colors.black,
-                                fontWeight: FontWeight.w500,
-                                fontSize: 17.0,
-                              ),
-                            ),
+                                fontSize: 17.0),
                           ),
                         ),
                         Container(
@@ -81,27 +77,19 @@ class LoginPage extends StatelessWidget {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Text(
-                                "Don't have an account?",
-                                style: TextStyle(
+                              header_text(
+                                  texto: "Don't have an account?  ",
                                   color: gris,
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 15.0,
-                                ),
-                              ),
+                                  fontSize: 15.0),
                               GestureDetector(
                                 onTap: () {
                                   Navigator.pushNamed(context, 'CreateAccount');
                                 },
                                 child: Container(
-                                  child: Text(
-                                    'Sign up',
-                                    style: TextStyle(
-                                      color: amarillo,
-                                      fontWeight: FontWeight.w400,
-                                      fontSize: 15.0,
-                                    ),
-                                  ),
+                                  child: header_text(
+                                      texto: "Sign up ",
+                                      color: naranja,
+                                      fontSize: 15.0),
                                 ),
                               )
                             ],
@@ -152,6 +140,8 @@ Widget _passwordInput() {
   );
 }
 
+
+/*
 Widget _loginButton(BuildContext context) {
   return Container(
     width: 350.0,
@@ -162,9 +152,7 @@ Widget _loginButton(BuildContext context) {
           Navigator.pushNamed(context, 'Tabs');
         },
         style: ElevatedButton.styleFrom(
-            shape: StadiumBorder(),
-            backgroundColor: Theme.of(context).colorScheme.secondary,
-            elevation: 0.5),
+            shape: StadiumBorder(), backgroundColor: naranja, elevation: 0.5),
         child: const Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -176,3 +164,4 @@ Widget _loginButton(BuildContext context) {
         )),
   );
 }
+*/
