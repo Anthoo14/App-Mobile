@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_vscode/src/Colors/colors.dart';
 import 'package:flutter_swiper_null_safety/flutter_swiper_null_safety.dart';
 import 'package:flutter_vscode/src/features/presentation/commons_widgets/headers.dart';
+import 'package:flutter_vscode/src/features/presentation/commons_widgets/populares_card.dart';
 
 class ExploreTabs extends StatelessWidget {
   const ExploreTabs({super.key});
@@ -26,12 +27,36 @@ class ExploreTabs extends StatelessWidget {
                       fontSize: 30.0)),
               _sliderCards(),
               _headers(context, 'Popular this week', 'Show all'),
-              _populares(context,
-                  "https://images.unsplash.com/photo-1484723091739-30a097e8f929?auto=format&fit=crop&q=60&w=500&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8YnJlYWtmYXN0fGVufDB8fDB8fHww"),
-              _populares(context,
-                  "https://images.unsplash.com/photo-1482049016688-2d3e1b311543?auto=format&fit=crop&q=60&w=500&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGJyZWFrZmFzdHxlbnwwfHwwfHx8MA%3D%3D"),
-              _populares(context,
-                  "https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?auto=format&fit=crop&q=60&w=500&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fGJyZWFrZmFzdHxlbnwwfHwwfHx8MA%3D%3D"),
+              popularesCard(
+                  context: context,
+                  title: "Prueba 1 restaurant",
+                  subTitle: "Descripcion del restaurant",
+                  review: "4.5",
+                  rating: "230 rating",
+                  buttonText: 'Delivery',
+                  hasActionButton: true,
+                  image: const NetworkImage(
+                      'https://images.unsplash.com/photo-1484723091739-30a097e8f929?auto=format&fit=crop&q=60&w=500&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8YnJlYWtmYXN0fGVufDB8fDB8fHww')),
+              popularesCard(
+                  context: context,
+                  title: "Prueba 1 restaurant",
+                  subTitle: "Descripcion del restaurant",
+                  review: "4.5",
+                  rating: "230 rating",
+                  buttonText: 'Delivery',
+                  hasActionButton: true,
+                  image: const NetworkImage(
+                      'https://images.unsplash.com/photo-1484723091739-30a097e8f929?auto=format&fit=crop&q=60&w=500&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8YnJlYWtmYXN0fGVufDB8fDB8fHww')),
+              popularesCard(
+                  context: context,
+                  title: "Prueba 1 restaurant",
+                  subTitle: "Descripcion del restaurant",
+                  review: "4.5",
+                  rating: "230 rating",
+                  buttonText: 'Delivery',
+                  hasActionButton: true,
+                  image: const NetworkImage(
+                      'https://images.unsplash.com/photo-1484723091739-30a097e8f929?auto=format&fit=crop&q=60&w=500&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8YnJlYWtmYXN0fGVufDB8fDB8fHww')),
               const SizedBox(height: 13.0),
               _headers(context, "Collections", "Show all"),
               _sliderCollections()
@@ -49,9 +74,9 @@ Widget _topBar(BuildContext context) {
       GestureDetector(
         onTap: () => Navigator.pushNamed(context, 'Search'),
         child: Container(
-          width: 305.0,
+          width: 310.0,
           padding: const EdgeInsets.all(10.0),
-          margin: const EdgeInsets.only(left: 16.0),
+          margin: const EdgeInsets.all(14.0),
           decoration: BoxDecoration(
               border:
                   Border.all(color: const Color.fromRGBO(234, 236, 239, 1.0)),
@@ -190,7 +215,11 @@ Widget _headers(BuildContext context, String textHeader, String textAction) {
     children: [
       Container(
         alignment: Alignment.centerLeft,
-        child: header_text(texto: textHeader, fontSize: 20.0),
+        child: header_text(
+            texto: textHeader,
+            color: Colors.black,
+            fontWeight: FontWeight.bold,
+            fontSize: 20.0),
       ),
       const Spacer(),
       GestureDetector(
@@ -207,91 +236,6 @@ Widget _headers(BuildContext context, String textHeader, String textAction) {
           ],
         ),
       ),
-    ],
-  );
-}
-
-Widget _populares(BuildContext context, String foto) {
-  return Column(
-    children: [
-      Container(
-        margin: const EdgeInsets.only(left: 10.0),
-        padding: const EdgeInsets.symmetric(vertical: 10),
-        child: Row(
-          children: [
-            ClipRRect(
-              borderRadius: BorderRadius.circular(10.0),
-              child: Image(
-                  width: 80,
-                  height: 80,
-                  fit: BoxFit.cover,
-                  image: NetworkImage(foto)),
-            ),
-            Container(
-              padding: const EdgeInsets.only(left: 20.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                      margin: const EdgeInsets.symmetric(vertical: 7.0),
-                      child: header_text(
-                          texto: "Prueba 1",
-                          color: Colors.black,
-                          fontSize: 17.0)),
-                  Container(
-                    alignment: Alignment.centerLeft,
-                    margin: const EdgeInsets.only(bottom: 5.0),
-                    child: Text(
-                      "87 Botsford Circle Apt",
-                      style: TextStyle(
-                          color: gris,
-                          fontWeight: FontWeight.w500,
-                          fontSize: 13.0),
-                    ),
-                  ),
-                  Row(
-                    children: [
-                      Icon(Icons.star, color: amarillo, size: 16.0),
-                      const Text("4.5",
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontWeight: FontWeight.w500,
-                            fontSize: 13.0,
-                          )),
-                      Container(
-                        margin: const EdgeInsets.only(left: 5.0),
-                        child: Text("(230 ratings)",
-                            style: TextStyle(
-                              color: gris,
-                              fontWeight: FontWeight.w500,
-                              fontSize: 13.0,
-                            )),
-                      ),
-                      Container(
-                        margin: const EdgeInsets.only(left: 45.0),
-                        width: 110.0,
-                        height: 18.0,
-                        child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                              shape: const StadiumBorder(),
-                              backgroundColor: naranja,
-                              elevation: 0.5),
-                          onPressed: () {},
-                          child: header_text(
-                              texto: "Free Delivery",
-                              color: Colors.white,
-                              fontSize: 11.0),
-                        ),
-                      )
-                    ],
-                  )
-                ],
-              ),
-            )
-          ],
-        ),
-      )
     ],
   );
 }
