@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_vscode/src/features/presentation/commons_widgets/Texts/textView.dart';
 
 Widget createElevatedButton(
     {BuildContext? context,
@@ -54,7 +55,6 @@ Widget _createElevatedButtonWithIcon(
             width: 20.0,
             height: 20.0,
           ),
-          /*
           Container(
             margin: const EdgeInsets.only(left: 10.0),
             child: TextView(
@@ -62,7 +62,7 @@ Widget _createElevatedButtonWithIcon(
                 color: labelColor,
                 fontSize: labelFontSize,
                 fontWeight: FontWeight.bold),
-          )*/
+          )
         ],
       ));
 }
@@ -82,14 +82,13 @@ Widget _createElevatedButtonNotIcon(
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          /*
           Container(
             child: TextView(
                 texto: labelButton,
                 color: labelColor,
                 fontSize: labelFontSize,
                 fontWeight: FontWeight.bold),
-          )*/
+          )
         ],
       ));
 }

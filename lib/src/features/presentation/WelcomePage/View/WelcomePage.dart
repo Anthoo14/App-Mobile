@@ -2,8 +2,8 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_vscode/src/Colors/colors.dart';
-import 'package:flutter_vscode/src/features/presentation/commons_widgets/headers.dart';
-import 'package:flutter_vscode/src/features/presentation/commons_widgets/roundedButton.dart';
+import 'package:flutter_vscode/src/features/presentation/commons_widgets/Buttons/roundedButton.dart';
+import 'package:flutter_vscode/src/features/presentation/commons_widgets/Headers/headers.dart';
 
 class WelcomePage extends StatelessWidget {
   @override
@@ -15,8 +15,7 @@ class WelcomePage extends StatelessWidget {
             decoration: const BoxDecoration(
                 image: DecorationImage(
                     fit: BoxFit.cover,
-                    image: NetworkImage(
-                        'https://plus.unsplash.com/premium_photo-1673959392807-017ca3e08282?auto=format&fit=crop&q=80&w=1974&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'))),
+                    image: AssetImage('assets/welcome-img.jpg'))),
             child: BackdropFilter(
               filter: ImageFilter.blur(sigmaX: 4.0, sigmaY: 1.0),
               child: Container(

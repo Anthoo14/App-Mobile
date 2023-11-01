@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_vscode/src/Colors/colors.dart';
-import 'package:flutter_vscode/src/features/presentation/commons_widgets/back_button.dart';
-import 'package:flutter_vscode/src/features/presentation/commons_widgets/headers.dart';
-import 'package:flutter_vscode/src/features/presentation/commons_widgets/roundedButton.dart';
+import 'package:flutter_vscode/src/features/presentation/commons_widgets/BackButtons/back_button.dart';
+import 'package:flutter_vscode/src/features/presentation/commons_widgets/Headers/headers.dart';
+import 'package:flutter_vscode/src/features/presentation/commons_widgets/Buttons/roundedButton.dart';
 
 class CreateAccount extends StatelessWidget {
   @override

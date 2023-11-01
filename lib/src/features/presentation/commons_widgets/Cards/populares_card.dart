@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_vscode/src/Colors/colors.dart';
-import 'package:flutter_vscode/src/features/presentation/commons_widgets/headers.dart';
+import 'package:flutter_vscode/src/features/presentation/commons_widgets/Headers/headers.dart';
 
 Widget popularesCard({
   required BuildContext context,

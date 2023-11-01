@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper_null_safety/flutter_swiper_null_safety.dart';
 import 'package:flutter_vscode/src/Colors/colors.dart';
-import 'package:flutter_vscode/src/features/presentation/commons_widgets/cardVertical.dart';
-import 'package:flutter_vscode/src/features/presentation/commons_widgets/header_double.dart';
-import 'package:flutter_vscode/src/features/presentation/commons_widgets/headers.dart';
-import 'package:flutter_vscode/src/features/presentation/commons_widgets/populares_card.dart';
+import 'package:flutter_vscode/src/features/presentation/commons_widgets/Cards/cardVertical.dart';
+import 'package:flutter_vscode/src/features/presentation/commons_widgets/Cards/populares_card.dart';
+import 'package:flutter_vscode/src/features/presentation/commons_widgets/Headers/header_double.dart';
+import 'package:flutter_vscode/src/features/presentation/commons_widgets/Headers/headers.dart';
 
 class SearchPage extends StatelessWidget {
   const SearchPage({super.key});

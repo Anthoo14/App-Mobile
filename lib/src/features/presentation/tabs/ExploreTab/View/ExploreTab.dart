@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_vscode/src/Colors/colors.dart';
 import 'package:flutter_swiper_null_safety/flutter_swiper_null_safety.dart';
-import 'package:flutter_vscode/src/features/presentation/commons_widgets/headers.dart';
-import 'package:flutter_vscode/src/features/presentation/commons_widgets/populares_card.dart';
+import 'package:flutter_vscode/src/features/presentation/commons_widgets/Cards/populares_card.dart';
+import 'package:flutter_vscode/src/features/presentation/commons_widgets/Headers/headers.dart';
 
 class ExploreTabs extends StatelessWidget {
   const ExploreTabs({super.key});
@@ -108,7 +108,9 @@ Widget _topBar(BuildContext context) {
             borderRadius: BorderRadius.circular(30.0)),
         child: IconButton(
           icon: const Icon(Icons.filter_list, size: 25.0, color: Colors.white),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pushNamed(context, 'Filter');
+          },
         ),
       )
     ],

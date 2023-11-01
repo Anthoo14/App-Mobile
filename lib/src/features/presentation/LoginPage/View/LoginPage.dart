@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_vscode/src/Colors/colors.dart';
-import 'package:flutter_vscode/src/features/presentation/commons_widgets/back_button.dart';
-import 'package:flutter_vscode/src/features/presentation/commons_widgets/headers.dart';
-import 'package:flutter_vscode/src/features/presentation/commons_widgets/roundedButton.dart';
+import 'package:flutter_vscode/src/features/presentation/commons_widgets/BackButtons/back_button.dart';
+import 'package:flutter_vscode/src/features/presentation/commons_widgets/Headers/headers.dart';
+import 'package:flutter_vscode/src/features/presentation/commons_widgets/Buttons/roundedButton.dart';
 
 class LoginPage extends StatelessWidget {
   @override
@@ -21,8 +21,7 @@ class LoginPage extends StatelessWidget {
                     width: double.infinity,
                     height: 320.0,
                     fit: BoxFit.cover,
-                    image: NetworkImage(
-                        'https://images.unsplash.com/photo-1529892485617-25f63cd7b1e9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80')),
+                    image: AssetImage('assets/login-img.jpg')),
                 Container(
                   margin: const EdgeInsets.only(top: 30.0),
                   child: backButtton(context, Colors.white),
@@ -39,7 +38,7 @@ class LoginPage extends StatelessWidget {
                   borderRadius: BorderRadius.circular(20.0),
                 ),
                 child: Padding(
-                  padding: EdgeInsets.all(25.0),
+                  padding: const EdgeInsets.all(25.0),
                   child: Center(
                     child: Column(
                       children: [
@@ -113,7 +112,7 @@ Widget _emailInput() {
     margin: const EdgeInsets.only(top: 20.0),
     padding: const EdgeInsets.only(left: 10.0),
     decoration: BoxDecoration(
-        color: Color.fromRGBO(142, 142, 147, 1.2),
+        color: const Color.fromRGBO(142, 142, 147, 1.2),
         borderRadius: BorderRadius.circular(30.0)),
     child: const TextField(
       keyboardType: TextInputType.emailAddress,
@@ -129,7 +128,7 @@ Widget _passwordInput() {
     margin: const EdgeInsets.only(top: 16.0),
     padding: const EdgeInsets.only(left: 10.0),
     decoration: BoxDecoration(
-        color: Color.fromRGBO(142, 142, 147, 1.2),
+        color: const Color.fromRGBO(142, 142, 147, 1.2),
         borderRadius: BorderRadius.circular(30.0)),
     child: const TextField(
       obscureText: true,

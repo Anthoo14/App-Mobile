@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_vscode/src/Colors/colors.dart';
-import 'package:flutter_vscode/src/features/presentation/commons_widgets/alert_dialog.dart';
+import 'package:flutter_vscode/src/features/presentation/commons_widgets/Alerts/alert_dialog.dart';
 import 'package:flutter_vscode/src/features/presentation/tabs/ExploreTab/View/ExploreTab.dart';
 import 'package:flutter_vscode/src/features/presentation/tabs/FavoriteTab/View/FavoriteTab.dart';
 import 'package:flutter_vscode/src/features/presentation/tabs/MyOrdenTab/View/MyOrdersTab.dart';
