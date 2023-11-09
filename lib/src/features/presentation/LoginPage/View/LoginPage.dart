@@ -21,7 +21,7 @@ class LoginPage extends StatelessWidget {
                     width: double.infinity,
                     height: 320.0,
                     fit: BoxFit.cover,
-                    image: AssetImage('assets/login-img.jpg')),
+                    image: AssetImage('assets/imageWelcome.jpg')),
                 Container(
                   margin: const EdgeInsets.only(top: 30.0),
                   child: backButtton(context, Colors.white),

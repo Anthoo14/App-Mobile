@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_vscode/src/Colors/colors.dart';
-import 'package:flutter_vscode/src/features/presentation/FilterPage/View/customsWidgets/cuisines_filters.dart';
-import 'package:flutter_vscode/src/features/presentation/FilterPage/View/customsWidgets/list_tile_checked.dart';
-import 'package:flutter_vscode/src/features/presentation/FilterPage/View/customsWidgets/priceFilter.dart';
+
 import 'package:flutter_vscode/src/features/presentation/commons_widgets/Headers/headers.dart';
+
+import 'Components/cuisines_filters.dart';
+import 'Components/list_tile_checked.dart';
+import 'Components/priceFilter.dart';
 
 class FilterPage extends StatefulWidget {
   const FilterPage({super.key});

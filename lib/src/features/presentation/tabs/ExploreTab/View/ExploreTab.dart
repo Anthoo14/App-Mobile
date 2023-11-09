@@ -25,7 +25,7 @@ class ExploreTabs extends StatelessWidget {
                       texto: "Discover new places",
                       color: Colors.black,
                       fontSize: 30.0)),
-              _sliderCards(),
+              _sliderCards(context),
               _headers(context, 'Popular this week', 'Show all'),
               popularesCard(
                   context: context,
@@ -58,7 +58,11 @@ class ExploreTabs extends StatelessWidget {
                   image: const NetworkImage(
                       'https://images.unsplash.com/photo-1484723091739-30a097e8f929?auto=format&fit=crop&q=60&w=500&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8YnJlYWtmYXN0fGVufDB8fDB8fHww')),
               const SizedBox(height: 13.0),
-              _headers(context, "Collections", "Show all"),
+              GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, 'Collection');
+                  },
+                  child: _headers(context, "Collections", "Show all")),
               _sliderCollections()
             ]),
           )
@@ -117,20 +121,25 @@ Widget _topBar(BuildContext context) {
   );
 }
 
-Widget _sliderCards() {
-  return Container(
-    height: 350.0,
-    child: Swiper(
-      itemCount: 4,
-      layout: SwiperLayout.DEFAULT,
-      itemBuilder: (BuildContext context, int index) {
-        return ListView.builder(
-          scrollDirection: Axis.horizontal,
-          itemBuilder: (BuildContext context, int index) {
-            return _card(context);
-          },
-        );
-      },
+Widget _sliderCards(BuildContext context) {
+  return GestureDetector(
+    onTap: () {
+      Navigator.pushNamed(context, 'PlaceDetail');
+    },
+    child: Container(
+      height: 350.0,
+      child: Swiper(
+        itemCount: 4,
+        layout: SwiperLayout.DEFAULT,
+        itemBuilder: (BuildContext context, int index) {
+          return ListView.builder(
+            scrollDirection: Axis.horizontal,
+            itemBuilder: (BuildContext context, int index) {
+              return _card(context);
+            },
+          );
+        },
+      ),
     ),
   );
 }
@@ -155,7 +164,7 @@ Widget _card(BuildContext context) {
             Container(
               margin: const EdgeInsets.only(top: 10.0),
               child: const Text(
-                "Andy & Cindy's diner",
+                "Prueba restaurant 1",
                 style: TextStyle(
                     color: Colors.black,
                     fontWeight: FontWeight.bold,
@@ -165,7 +174,7 @@ Widget _card(BuildContext context) {
             Container(
               alignment: Alignment.centerLeft,
               child: Text(
-                "87 Botsford Circle Apt",
+                "location",
                 style: TextStyle(
                     color: gris, fontWeight: FontWeight.w500, fontSize: 13.0),
               ),

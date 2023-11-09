@@ -37,7 +37,7 @@ Widget cardVertical(
                   fontSize: 13.0,
                   fontWeight: FontWeight.w400,
                   color: gris),
-            )
+            ),
           ],
         )
       ],

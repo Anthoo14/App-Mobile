@@ -3,6 +3,7 @@ import 'package:flutter_vscode/src/Colors/colors.dart';
 import 'package:flutter_vscode/src/features/presentation/commons_widgets/Headers/headers.dart';
 import 'package:flutter_vscode/src/features/presentation/commons_widgets/Texts/textView.dart';
 
+@immutable
 class ListTileCheck extends StatefulWidget {
   final String texto;
   final bool isActive;

@@ -21,9 +21,11 @@ class _CuisinesFilterState extends State<CuisinesFilter> {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+        Wrap(
+          alignment: WrapAlignment.start,
+          direction: Axis.horizontal,
           children: [
             _roundedButtonFilter(() {
               setState(() => btnAmerican = !btnAmerican);
@@ -37,19 +39,17 @@ class _CuisinesFilterState extends State<CuisinesFilter> {
             _roundedButtonFilter(() {
               setState(() => btnPizza = !btnPizza);
             }, btnPizza, 'Pizza'),
+            _roundedButtonFilter(() {
+              setState(() => btnDesserts = !btnDesserts);
+            }, btnDesserts, 'Desserts'),
+            _roundedButtonFilter(() {
+              setState(() => btnFastFood = !btnFastFood);
+            }, btnFastFood, 'FastFood'),
+            _roundedButtonFilter(() {
+              setState(() => btnPeruvian = !btnPeruvian);
+            }, btnPeruvian, 'Peruvian')
           ],
         ),
-        Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
-          _roundedButtonFilter(() {
-            setState(() => btnDesserts = !btnDesserts);
-          }, btnDesserts, 'Desserts'),
-          _roundedButtonFilter(() {
-            setState(() => btnFastFood = !btnFastFood);
-          }, btnFastFood, 'FastFood'),
-          _roundedButtonFilter(() {
-            setState(() => btnPeruvian = !btnPeruvian);
-          }, btnPeruvian, 'Peruvian')
-        ])
       ],
     );
   }
@@ -57,8 +57,8 @@ class _CuisinesFilterState extends State<CuisinesFilter> {
 
 Widget _roundedButtonFilter(Function()? func, bool isActive, String labelText) {
   return Container(
-    width: 160,
-    height: 55,
+    width: 120,
+    height: 50,
     margin: const EdgeInsets.only(left: 5),
     child: createElevatedButton(
       labelButton: labelText,

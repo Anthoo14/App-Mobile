@@ -68,6 +68,13 @@ flutter:
    - assets/location.png
    - assets/welcome-img.jpg
    - assets/login-img.jpg
+   - assets/imageWelcome.jpg
+   - 'assets/share.png'
+   - 'assets/plus_order.png'
+   - 'assets/emptyOrder.png'
+   - 'assets/crown.png'
+   - 'assets/noti.png'
+   - 'assets/'
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 
