@@ -7,16 +7,16 @@ class AuthErrorDecodable {
     this.error,
   });
 
-  factory AuthErrorDecodable.fromRawJson(String str) => AuthErrorDecodable.fromJson(json.decode(str));
+  factory AuthErrorDecodable.fromJson(String str) => AuthErrorDecodable.fromMap(json.decode(str));
 
-  String toRawJson() => json.encode(toMap());
+  String toJson() => json.encode(toMap());
 
-  factory AuthErrorDecodable.fromJson(Map<String, dynamic> json) => AuthErrorDecodable(
-    error: json["error"] == null ? null : AuthErrorDecodableError.fromJson(json["error"]),
+  factory AuthErrorDecodable.fromMap(Map<String, dynamic> json) => AuthErrorDecodable(
+    error: json["error"] == null ? null : AuthErrorDecodableError.fromMap(json["error"]),
   );
 
   Map<String, dynamic> toMap() => {
-    "error": error?.toJson(),
+    "error": error?.toMap(),
   };
 }
 
@@ -31,17 +31,17 @@ class AuthErrorDecodableError {
     this.errors,
   });
 
-  factory AuthErrorDecodableError.fromRawJson(String str) => AuthErrorDecodableError.fromJson(json.decode(str));
+  factory AuthErrorDecodableError.fromJson(String str) => AuthErrorDecodableError.fromMap(json.decode(str));
 
-  String toRawJson() => json.encode(toJson());
+  String toJson() => json.encode(toMap());
 
-  factory AuthErrorDecodableError.fromJson(Map<String, dynamic> json) => AuthErrorDecodableError(
+  factory AuthErrorDecodableError.fromMap(Map<String, dynamic> json) => AuthErrorDecodableError(
     code: json["code"],
     message: json["message"],
-    errors: json["errors"] == null ? [] : List<ErrorElement>.from(json["errors"]!.map((x) => ErrorElement.fromJson(x))),
+    errors: json["errors"] == null ? [] : List<ErrorElement>.from(json["errors"]!.map((x) => ErrorElement.fromMap(x))),
   );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
     "code": code,
     "message": message,
     "errors": errors == null ? [] : List<dynamic>.from(errors!.map((x) => x.toMap())),
@@ -59,11 +59,11 @@ class ErrorElement {
     this.reason,
   });
 
-  factory ErrorElement.fromRawJson(String str) => ErrorElement.fromJson(json.decode(str));
+  factory ErrorElement.fromJson(String str) => ErrorElement.fromMap(json.decode(str));
 
-  String toRawJson() => json.encode(toMap());
+  String toJson() => json.encode(toMap());
 
-  factory ErrorElement.fromJson(Map<String, dynamic> json) => ErrorElement(
+  factory ErrorElement.fromMap(Map<String, dynamic> json) => ErrorElement(
     message: json["message"],
     domain: json["domain"],
     reason: json["reason"],
