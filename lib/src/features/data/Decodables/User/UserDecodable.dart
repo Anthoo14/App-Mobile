@@ -2,17 +2,19 @@ import 'dart:convert';
 
 class UserDecodable{
   UserDecodable({
-      this.localId,
-      this.role,
-      this.username,
-      this.email,
-      this.phone,
-      this.dateOfBirth,
-      this.startDate,
-      this.photo,
-      this.shippingAddress,
-      this.billingAddress,
-      this.idToken});
+    this.localId,
+    this.role,
+    this.username,
+    this.email,
+    this.phone,
+    this.dateOfBirth,
+    this.startDate,
+    this.photo,
+    this.shippingAddress,
+    this.billingAddress,
+    this.idToken,
+    this.provider
+  });
 
   String? localId;
   String? role;
@@ -25,40 +27,42 @@ class UserDecodable{
   String? shippingAddress;
   String? billingAddress;
   String? idToken;
+  String? provider;
 
-
-
-  factory UserDecodable.fromJson(String str)=>
+  factory UserDecodable.fromJson(String str) =>
       UserDecodable.fromMap(json.decode(str));
 
   String toJson() => json.encode(toMap());
 
-  factory UserDecodable.fromMap(Map<String, dynamic>json)=> UserDecodable(
-      localId :json["localId"]==null ?null : json["localId"],
-      role :json["role"]==null ?null : json["role"],
-      username  :json["username"]==null ?null : json["username"],
-      email  :json["email"]==null ?null : json["email"],
-      phone  :json["phone"]==null ?null : json["phone"],
-      dateOfBirth  :json["dateOfBirth"]==null ?null : json["dateOfBirth"],
-      startDate  :json["startDate"]==null ?null : json["startDate"],
-      photo  :json["photo"]==null ?null : json["photo"],
-      shippingAddress  :json["shippingAddress"]==null ?null : json["shippingAddress"],
-      billingAddress  :json["billingAddress"]==null ?null : json["billingAddress"],
-      idToken  :json["idToken"]==null ?null : json["idToken"]
+  factory UserDecodable.fromMap(Map<String, dynamic> json) => UserDecodable(
+      localId: json["localId"],
+      role: json["role"],
+      username: json["username"],
+      email: json["email"],
+      phone: json["phone"],
+      dateOfBirth: json["dateOfBirth"],
+      startDate: json["startDate"],
+      photo: json["photo"],
+      shippingAddress:
+      json["shippingAddress"],
+      billingAddress:
+      json["billingAddress"],
+      idToken: json["idToken"],
+      provider: json["provider"]
   );
 
-
-  Map<String,dynamic> toMap() =>{
-    "localId": localId ==null ?null :localId,
-    "role": role ==null ?null :role,
-    "username": username ==null ?null :username,
-    "email": email ==null ?null :email,
-    "phone": phone ==null ?null :phone,
-    "dateOfBirth": dateOfBirth ==null ?null :dateOfBirth,
-    "photo": photo ==null ?null :photo,
-    "shippingAddress": shippingAddress ==null ?null :shippingAddress,
-    "billingAddress": billingAddress ==null ?null :billingAddress,
-    "idToken": idToken ==null ?null :idToken
-
+  Map<String, dynamic> toMap() => {
+    "localId": localId,
+    "role": role,
+    "username": username,
+    "email": email,
+    "phone": phone,
+    "dateOfBirth": dateOfBirth,
+    "startDate": startDate,
+    "photo": photo,
+    "shippingAddress": shippingAddress,
+    "billingAddress": billingAddress,
+    "idToken": billingAddress == null ? null : idToken,
+    "provider": provider
   };
 }

@@ -6,15 +6,11 @@ import 'package:flutter_vscode/src/features/domain/UseCases/Auth/SignUpUseCase/S
 import 'package:flutter_vscode/src/utils/Helpers/ResultType/ResultType.dart';
 
 abstract class _Constants{
-  static String correctEmail="cat1t@gmail.com";
+  static String correctEmail="anthoo@gmail.com";
   static String correctPass="123456";
-  static String wrongEmail ="zarek1@gmail.com";
+  static String wrongEmail ="zarek231@gmail.com";
   static String wrongPass="123456";
-
-
-
 }
-
 void main(){
       //given   (subject under test=sut)
 
@@ -36,6 +32,7 @@ void main(){
               case ResultStatus.success:
               //then
                 expect(result.value, isA<SignUpEntity>());
+                print("correct test");
               case ResultStatus.error:
             //then
               expect(result.error,Failure);

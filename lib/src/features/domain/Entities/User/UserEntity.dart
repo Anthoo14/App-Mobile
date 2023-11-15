@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import '../../UseCases/User/SaveUserDataUseCase/SaveUserDataUseCaseParameters.dart';
+
 class UserEntity{
   UserEntity({
     this.localId,
@@ -12,7 +14,9 @@ class UserEntity{
     this.photo,
     this.shippingAddress,
     this.billingAddress,
-    this.idToken});
+    this.idToken,
+    this.provider
+  });
 
   String? localId;
   String? role;
@@ -25,8 +29,7 @@ class UserEntity{
   String? shippingAddress;
   String? billingAddress;
   String? idToken;
-
-
+  String? provider;
 
   factory UserEntity.fromJson(String str) => UserEntity.fromMap(json.decode(str));
 
@@ -44,23 +47,47 @@ class UserEntity{
       shippingAddress: json["shippingAddress"],
       billingAddress: json["billingAddress"],
       idToken: json["idToken"],
+      provider: json["provider"]
   );
 
-
-  Map<String,dynamic> toMap() =>{
-    "localId":localId,
-    "role":role,
+  Map<String, dynamic> toMap() => {
+    "localId": localId,
+    "role": role,
     "username": username,
-    "email":email,
-    "phone":phone,
-    "dateOfBirth":dateOfBirth,
-    "photo":photo,
-    "shippingAddress":shippingAddress,
-    "billingAddress":billingAddress,
-    "idToken":idToken
-
+    "email": email,
+    "phone": phone,
+    "dateOfBirth": dateOfBirth,
+    "startDate": startDate,
+    "photo": photo,
+    "shippingAddress": shippingAddress,
+    "billingAddress": billingAddress,
+    "idToken": billingAddress == null ? null : idToken,
+    "provider": provider
   };
+
+  SaveUserDataUseCaseParameters getSaveUserDataParams() {
+    return SaveUserDataUseCaseParameters(
+        localId: localId,
+        role: UserRole.values.byName(role ?? ""),
+        username: username,
+        email: email,
+        phone: phone,
+        dateOfBirth: dateOfBirth,
+        startDate: startDate,
+        photo: photo,
+        shippingAddress: shippingAddress,
+        billingAddress: billingAddress,
+        idToken: idToken,
+        provider: provider
+    );
+  }
 }
+
+class UserAuthProvider {
+  static String google = "Google";
+  static String emailAndPassword = "emailAndPassword";
+}
+
 enum UserRole {
   user, owner, admin, rider
 }

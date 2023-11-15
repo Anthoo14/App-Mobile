@@ -9,7 +9,7 @@ import 'package:flutter_vscode/src/utils/Helpers/ResultType/ResultType.dart';
 
 class DefaultSingUpRepository extends SingUpRepository{
 //dependencies
-  SingUpService _singUpService;
+  final SingUpService _singUpService;
 
   DefaultSingUpRepository({SingUpService ?  singUpService}):_singUpService = singUpService ?? DefaultSingUpService();
 

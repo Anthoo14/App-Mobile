@@ -21,8 +21,8 @@ abstract class SignUpUseCase {
 class DefaultSignUpUseCase extends SignUpUseCase {
 
   //Dependencies
-  SingUpRepository _singUpRepository;
-SaveUserDataUseCase _saveUserDataUseCase;
+ final SingUpRepository _singUpRepository;
+ final   SaveUserDataUseCase _saveUserDataUseCase;
 
   DefaultSignUpUseCase({SingUpRepository? singUpRepository, SaveUserDataUseCase? saveUserDataUseCase})
       : _singUpRepository = singUpRepository ?? DefaultSingUpRepository(),
@@ -44,10 +44,8 @@ SaveUserDataUseCase _saveUserDataUseCase;
             return Result.failure(Failure.fromMessage(
                 message: AppFailureMessage.unExpectedErrrorMessage));
           }
-          SignUpEntity entity = SignUpEntity.fromMap(result.value!.toMap());
-
           //SAVED NEW USER
-          return Result.success(entity);
+          return saveUserDataInDatabase(parameters:parameters, entity: SignUpEntity.fromMap(result.value!.toMap()));
         case ResultStatus.error:
           return Result.failure(result.error);
       }

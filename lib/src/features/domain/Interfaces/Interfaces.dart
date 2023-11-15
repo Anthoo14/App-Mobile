@@ -15,6 +15,7 @@ abstract class SingUpRepository{
 }
 
 
+
 //User Database Repository
 abstract class SaveUserDataRepository{
   Future<Result<UserDecodable, Failure>> saveUserData({required UserBodyParameters parameters});

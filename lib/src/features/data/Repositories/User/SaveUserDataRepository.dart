@@ -13,7 +13,7 @@ abstract class _Paths {
 
 class DefaultSaveUserDataRepository extends SaveUserDataRepository {
   //Dependencies
-  RealtimeDatabaseService _realtimeDatabaseService;
+ final RealtimeDatabaseService _realtimeDatabaseService;
 
   DefaultSaveUserDataRepository(
       {RealtimeDatabaseService? realtimeDatabaseService})

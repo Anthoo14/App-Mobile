@@ -11,26 +11,18 @@ abstract class _Exceptions {
 }
 
 abstract class ApiService {
-  Future<Map<String, dynamic>> getDataFromPostRequest(
-      {required Map<String, dynamic> bodyparameters,
-      required String endpoint,
-      Map<String, String>? headers});
+  Future<Map<String, dynamic>> getDataFromPostRequest({required Map<String, dynamic> bodyparameters, required String endpoint, Map<String, String>? headers});
 
-  Future<Map<String, dynamic>> getDataFromPutRequest(
-      {required Map<String, dynamic> bodyparameters,
-      required String endpoint,
-      Map<String, String>? headers});
+  Future<Map<String, dynamic>> getDataFromPutRequest({required Map<String, dynamic> bodyparameters, required String endpoint, Map<String, String>? headers});
 
-  Future<Map<String, dynamic>> getDataFromGetRequest(
-      {required String endpoint, Map<String, String>? headers});
-}
+  Future<Map<String, dynamic>> getDataFromGetRequest({required String endpoint, Map<String, String>? headers});}
 
 class DefaultApiService extends ApiService {
   @override
   Future<Map<String, dynamic>> getDataFromGetRequest(
       {required String endpoint, Map<String, String>? headers}) async {
-    final _endpoint = Uri.parse(endpoint);
-    final response = await http.get(_endpoint, headers: headers);
+    var _endpoint = Uri.parse(endpoint);
+    var response = await http.get(_endpoint, headers: headers);
     try {
       if (response.statusCode.toString().contains('20')) {
         //good
