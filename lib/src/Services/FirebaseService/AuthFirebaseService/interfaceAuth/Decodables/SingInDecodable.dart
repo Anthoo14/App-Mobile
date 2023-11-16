@@ -21,11 +21,11 @@ class SingInDecodable {
     this.expiresIn,
   });
 
-  factory SingInDecodable.fromRawJson(String str) => SingInDecodable.fromJson(json.decode(str));
+  factory SingInDecodable.fromRawJson(String str) => SingInDecodable.fromMap(json.decode(str));
 
-  String toRawJson() => json.encode(toJson());
+  String toRawJson() => json.encode(toMap());
 
-  factory SingInDecodable.fromJson(Map<String, dynamic> json) => SingInDecodable(
+  factory SingInDecodable.fromMap(Map<String, dynamic> json) => SingInDecodable(
     kind: json["kind"],
     localId: json["localId"],
     email: json["email"],
@@ -36,7 +36,7 @@ class SingInDecodable {
     expiresIn: json["expiresIn"],
   );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
     "kind": kind,
     "localId": localId,
     "email": email,
