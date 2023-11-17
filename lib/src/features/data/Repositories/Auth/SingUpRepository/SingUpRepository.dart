@@ -1,11 +1,12 @@
 import 'package:flutter_vscode/src/Base/ApiService/appError.dart';
-import 'package:flutter_vscode/src/Services/FirebaseService/AuthFirebaseService/interfaceAuth/AuthFirebase.dart';
+import 'package:flutter_vscode/src/Services/FirebaseService/AuthFirebaseService/Interfaces/AuthFirebase.dart';
 
-import 'package:flutter_vscode/src/Services/FirebaseService/AuthFirebaseService/interfaceAuth/Decodables/SingUpDecodable.dart';
-import 'package:flutter_vscode/src/Services/FirebaseService/AuthFirebaseService/interfaceAuth/SingUpAuthService.dart';
+import 'package:flutter_vscode/src/Services/FirebaseService/AuthFirebaseService/Decodables/SingUpDecodable.dart';
 import 'package:flutter_vscode/src/features/data/Repositories/Auth/SingUpRepository/SingUpRepositoryParameters.dart';
 import 'package:flutter_vscode/src/features/domain/Interfaces/Interfaces.dart';
 import 'package:flutter_vscode/src/utils/Helpers/ResultType/ResultType.dart';
+
+import '../../../../../Services/FirebaseService/AuthFirebaseService/Services/SingUpAuthService.dart';
 
 class DefaultSingUpRepository extends SingUpRepository{
 //dependencies

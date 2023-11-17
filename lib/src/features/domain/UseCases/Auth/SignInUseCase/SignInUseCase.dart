@@ -2,8 +2,7 @@
 
 import 'package:flutter_vscode/src/Base/ApiService/appError.dart';
 import 'package:flutter_vscode/src/Base/Constants/ErrorMessage.dart';
-import 'package:flutter_vscode/src/Services/FirebaseService/AuthFirebaseService/interfaceAuth/AuthFirebase.dart';
-import 'package:flutter_vscode/src/Services/FirebaseService/AuthFirebaseService/interfaceAuth/SingInAuthService.dart';
+import 'package:flutter_vscode/src/Services/FirebaseService/AuthFirebaseService/Interfaces/AuthFirebase.dart';
 import 'package:flutter_vscode/src/features/data/Repositories/Auth/SignInRepository/SignInBodyParameters.dart';
 import 'package:flutter_vscode/src/features/data/Repositories/Auth/SignInRepository/SignInRepository.dart';
 import 'package:flutter_vscode/src/features/domain/Entities/Auth/SignInEntity/SignInEntity.dart';

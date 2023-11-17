@@ -1,4 +1,4 @@
-import 'package:flutter_vscode/src/Services/FirebaseService/AuthFirebaseService/interfaceAuth/AuthFirebase.dart';
+import 'package:flutter_vscode/src/Services/FirebaseService/AuthFirebaseService/Interfaces/AuthFirebase.dart';
 
 class DefaultSingUpService extends SingUpService{
   @override

@@ -1,11 +1,13 @@
 import 'package:flutter_vscode/src/Base/ApiService/appError.dart';
-import 'package:flutter_vscode/src/Services/FirebaseService/AuthFirebaseService/interfaceAuth/Decodables/SingInDecodable.dart';
-import 'package:flutter_vscode/src/Services/FirebaseService/AuthFirebaseService/interfaceAuth/SingInAuthService.dart';
+
+
 import 'package:flutter_vscode/src/features/data/Repositories/Auth/SignInRepository/SignInBodyParameters.dart';
 import 'package:flutter_vscode/src/features/domain/Interfaces/Interfaces.dart';
 import 'package:flutter_vscode/src/utils/Helpers/ResultType/ResultType.dart';
 
-import '../../../../../Services/FirebaseService/AuthFirebaseService/interfaceAuth/AuthFirebase.dart';
+import '../../../../../Services/FirebaseService/AuthFirebaseService/Decodables/SingInDecodable.dart';
+import '../../../../../Services/FirebaseService/AuthFirebaseService/Interfaces/AuthFirebase.dart';
+import '../../../../../Services/FirebaseService/AuthFirebaseService/Services/SingInAuthService.dart';
 
 class DefaultSignInRepository extends SignInRepository {
   //dependecies

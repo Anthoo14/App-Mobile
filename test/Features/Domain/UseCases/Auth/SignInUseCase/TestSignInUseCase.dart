@@ -2,7 +2,8 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_vscode/src/Base/ApiService/appError.dart';
 import 'package:flutter_vscode/src/Base/Constants/ErrorMessage.dart';
-import 'package:flutter_vscode/src/Services/FirebaseService/AuthFirebaseService/interfaceAuth/Decodables/AuthErrorDecodable.dart';
+import 'package:flutter_vscode/src/Services/FirebaseService/AuthFirebaseService/Decodables/AuthErrorDecodable.dart';
+
 import 'package:flutter_vscode/src/features/domain/Entities/Auth/SignInEntity/SignInEntity.dart';
 import 'package:flutter_vscode/src/features/domain/UseCases/Auth/SignInUseCase/SignInUseCase.dart';
 import 'package:flutter_vscode/src/features/domain/UseCases/Auth/SignInUseCase/SignInUseCaseParameters.dart';
