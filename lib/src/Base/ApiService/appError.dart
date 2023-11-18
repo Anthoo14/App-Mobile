@@ -9,7 +9,7 @@ class Failure {
   Map<String, dynamic> error = {};
 
   @override
-  String toString() => message ?? "";
+  String toString() => message ?? "There was an unexpected error";
 
   Failure.fromMessage({String? message}) {
     this.message = message;

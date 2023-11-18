@@ -8,7 +8,7 @@ import 'package:flutter_vscode/src/features/domain/UseCases/Auth/SignUpUseCase/S
 import 'package:flutter_vscode/src/utils/Helpers/ResultType/ResultType.dart';
 
 abstract class _Constants{
-  static String correctEmail="anthoo14@gmail.com";
+  static String correctEmail="anthoo124@gmail.com";
   static String correctPass="123456";
   static String wrongEmail ="anthoo@gmail.com";
   static String wrongPass="123456";

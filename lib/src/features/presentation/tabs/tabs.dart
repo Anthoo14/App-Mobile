@@ -70,7 +70,7 @@ class _tabsPageState extends State<tabsPage> {
 }
 
 Future _giveLocation(BuildContext context) async {
-  await ShowAlertDialog(
+   await ShowAlertDialog(
       context,
       AssetImage('assets/location.png'),
       "Enable Your Location",

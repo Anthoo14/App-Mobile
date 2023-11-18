@@ -12,96 +12,100 @@ class LoginPage extends StatelessWidget {
         .copyWith(statusBarColor: Colors.transparent));
 
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Stack(
-              children: [
-                const Image(
-                    width: double.infinity,
-                    height: 320.0,
-                    fit: BoxFit.cover,
-                    image: AssetImage('assets/imageWelcome.jpg')),
-                Container(
-                  margin: const EdgeInsets.only(top: 30.0),
-                  child: backButtton(context, Colors.white),
-                ),
-              ],
-            ),
-            Transform.translate(
-              offset: const Offset(0.0, -20.0),
-              child: Container(
-                width: double.infinity,
-                height: 400,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(20.0),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(25.0),
-                  child: Center(
-                    child: Column(
-                      children: [
-                        header_text(
-                            texto: "Welcome back",
-                            color: primaryColor,
-                            fontSize: 30),
-                        header_text(
-                            texto: "Login to you account",
-                            color: gris,
-                            fontSize: 15),
-                        _emailInput(),
-                        _passwordInput(),
-                        createElevatedButton(
-                            labelButton: 'Log in',
-                            color: naranja,
-                            shape: const StadiumBorder(),
-                            func: () {
-                              Navigator.pushNamed(context, 'Tabs');
-                            }),
-                        Container(
-                          margin: const EdgeInsets.only(top: 23.0),
-                          child: GestureDetector(
-                            onTap: () {
-                              Navigator.pushNamed(context, 'ForgotPass');
-                            },
-                            child: header_text(
-                                texto: "Forgot your password?  ",
-                                color: Colors.black,
-                                fontSize: 17.0),
-                          ),
-                        ),
-                        Container(
-                          margin: const EdgeInsets.only(top: 7.0),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              header_text(
-                                  texto: "Don't have an account?  ",
-                                  color: gris,
-                                  fontSize: 15.0),
-                              GestureDetector(
-                                onTap: () {
-                                  Navigator.pushNamed(context, 'CreateAccount');
-                                },
-                                child: Container(
-                                  child: header_text(
-                                      texto: "Sign up ",
-                                      color: naranja,
-                                      fontSize: 15.0),
-                                ),
-                              )
-                            ],
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-            )
-          ],
-        ),
+      body: CustomScrollView(
+       slivers: [
+         SliverList(delegate: SliverChildListDelegate(
+           [Column(
+             children: [
+               Stack(
+                 children: [
+                   const Image(
+                       width: double.infinity,
+                       height: 320.0,
+                       fit: BoxFit.cover,
+                       image: AssetImage('assets/imageWelcome.jpg')),
+                   Container(
+                     margin: const EdgeInsets.only(top: 30.0),
+                     child: backButtton(context, Colors.white),
+                   ),
+                 ],
+               ),
+               Transform.translate(
+                 offset: const Offset(0.0, -20.0),
+                 child: Container(
+                   width: double.infinity,
+                   height: 400,
+                   decoration: BoxDecoration(
+                     color: Colors.white,
+                     borderRadius: BorderRadius.circular(20.0),
+                   ),
+                   child: Padding(
+                     padding: const EdgeInsets.all(25.0),
+                     child: Center(
+                       child: Column(
+                         children: [
+                           header_text(
+                               texto: "Welcome back",
+                               color: primaryColor,
+                               fontSize: 35),
+                           header_text(
+                               texto: "Login to you account",
+                               color: gris,
+                               fontSize: 15),
+                           _emailInput(),
+                           _passwordInput(),
+                           createElevatedButton(
+                               labelButton: 'Log in',
+                               color: naranja,
+                               shape: const StadiumBorder(),
+                               func: () {
+                                 Navigator.pushNamed(context, 'Tabs');
+                               }),
+                           Container(
+                             margin: const EdgeInsets.only(top: 40.0),
+                             child: GestureDetector(
+                               onTap: () {
+                                 Navigator.pushNamed(context, 'ForgotPass');
+                               },
+                               child: header_text(
+                                   texto: "Forgot your password?  ",
+                                   color: Colors.black,
+                                   fontSize: 17.0),
+                             ),
+                           ),
+                           Container(
+                             margin: const EdgeInsets.only(top: 7.0),
+                             child: Row(
+                               mainAxisAlignment: MainAxisAlignment.center,
+                               children: [
+                                 header_text(
+                                     texto: "Don't have an account?  ",
+                                     color: gris,
+                                     fontSize: 15.0),
+                                 GestureDetector(
+                                   onTap: () {
+                                     Navigator.pushNamed(context, 'CreateAccount');
+                                   },
+                                   child: Container(
+                                     child: header_text(
+                                         texto: "Sign up ",
+                                         color: naranja,
+                                         fontSize: 15.0),
+                                   ),
+                                 )
+                               ],
+                             ),
+                           )
+                         ],
+                       ),
+                     ),
+                   ),
+                 ),
+               )
+             ],
+           ),]
+         ))
+       ],
       ),
     );
   }
