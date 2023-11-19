@@ -29,26 +29,27 @@ class Failure {
       message = error.message ?? "";
     });
 
-    if (message == "EMAIL_NOT_FOUND") {
+    if(message == "EMAIL_NOT_FOUND"){
       return Failure.fromMessage(
           message: FirebaseFailureMessages.emailNotFoundMessage);
-    } else if (message == "INVALID_PASSWORD") {
+    } else if(message == "INVALID_PASSWORD") {
       return Failure.fromMessage(
           message: FirebaseFailureMessages.invalidPasswordMessage);
-    } else if (message == "EMAIL_EXISTS") {
+    }else if(message == "EMAIL_EXISTS")  {
       return Failure.fromMessage(
           message: FirebaseFailureMessages.emailExistMessage);
-    } else if (message == "TO_MANY_ATTEMPTS_TRY_LATER") {
+    }else if(message == "TOO_MANY_ATTEMPTS_TRY_LATER"){
       return Failure.fromMessage(
           message: FirebaseFailureMessages.tooManyAttemptsMessage);
-    } else if (message == "INVALID_ID_TOKEN") {
+    } else if(message == "INVALID_ID_TOKEN"){
       return Failure.fromMessage(
           message: FirebaseFailureMessages.invalidTokenMessage);
-    } else if (message == "USER_NOT_FOUND") {
+    }else if(message == "USER_NOT_FOUND") {
       return Failure.fromMessage(
           message: FirebaseFailureMessages.userNotFoundMessage);
     }else{
       return   Failure.fromMessage(message: message);
     }
+
   }
 }
