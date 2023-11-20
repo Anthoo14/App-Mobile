@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_vscode/src/Base/Views/BaseView.dart';
 import 'package:flutter_vscode/src/features/presentation/StateProviders/ErrorStateProvider.dart';
 import 'package:flutter_vscode/src/features/presentation/StateProviders/LoadingStateProvider.dart';
 import 'package:flutter_vscode/src/routers/routers.dart';
@@ -18,7 +19,22 @@ class AppState extends StatelessWidget {
       ChangeNotifierProvider(create: (_)=> ErrorStateProvider()),
       ChangeNotifierProvider(create: (_)=> LoadingStateProvider()),
     ],
-    child: MyApp(),);
+    child: MyAppUserState(),);
+  }
+}
+
+class MyAppUserState extends StatelessWidget with BaseView{
+
+
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder(future: coordinator.start(), builder: (BuildContext context, AsyncSnapshot snapshot){
+      if(snapshot.hasData){
+        return MyApp(initialRoute: snapshot.data);
+      }else{
+        return CircularProgressIndicator();
+      }
+    });
   }
 }
 
@@ -26,15 +42,19 @@ class AppState extends StatelessWidget {
 
 
 
+
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  final String _initialRoute;
+
+  MyApp({required String initialRoute}): _initialRoute =initialRoute;
+
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       routes: routes,
-      initialRoute: 'Welcome',
+      initialRoute: _initialRoute,
       localizationsDelegates: const[
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,

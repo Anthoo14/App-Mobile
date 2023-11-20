@@ -20,13 +20,13 @@ class LoginPage extends StatelessWidget with BaseView {
   @override
   Widget build(BuildContext context) {
     // Init ViewModel
-    _viewModel.initState(loadingState: Provider.of<LoadingStateProvider>(context));
+    _viewModel.initState(loadingStateProvider: Provider.of<LoadingStateProvider>(context));
 
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light.copyWith(
       statusBarColor: Colors.transparent,
     ));
 
-    return _viewModel.loadingStatusState.isLoading
+    return _viewModel.loadingState.isLoading
         ? loadingView
         : Scaffold(
       body: CustomScrollView(
@@ -35,18 +35,15 @@ class LoginPage extends StatelessWidget with BaseView {
             delegate: SliverChildListDelegate([
               Column(
                 children: [
-                  Stack(
+                 const Stack(
                     children: [
-                      const Image(
+                       Image(
                         width: double.infinity,
                         height: 500,
                         fit: BoxFit.cover,
                         image: AssetImage('assets/imageWelcome.jpg'),
                       ),
-                      Container(
-                        margin: const EdgeInsets.only(top: 30.0),
-                        child: backButtton(context, Colors.white),
-                      ),
+
                     ],
                   ),
                   Transform.translate(

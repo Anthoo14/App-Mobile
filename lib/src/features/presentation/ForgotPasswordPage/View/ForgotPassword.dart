@@ -1,11 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_vscode/src/Colors/colors.dart';
+import 'package:flutter_vscode/src/features/presentation/ForgotPasswordPage/View/Components/TextFormFiledForgotEmail.dart';
+import 'package:flutter_vscode/src/features/presentation/ForgotPasswordPage/ViewModel/ForgotPasswordViewModel.dart';
 import 'package:flutter_vscode/src/features/presentation/commons_widgets/Alerts/alert_dialog.dart';
 import 'package:flutter_vscode/src/features/presentation/commons_widgets/BackButtons/back_button.dart';
 import 'package:flutter_vscode/src/features/presentation/commons_widgets/Buttons/roundedButton.dart';
 import 'package:flutter_vscode/src/features/presentation/commons_widgets/Headers/headers.dart';
 
-class ForgotPassword extends StatelessWidget {
+class ForgotPassword extends StatefulWidget {
+  @override
+  State<ForgotPassword> createState() => _ForgotPasswordState();
+}
+
+class _ForgotPasswordState extends State<ForgotPassword> {
+  //Dependencies
+  final ForgotPasswordViewModel _viewModel;
+  _ForgotPasswordState({ForgotPasswordViewModel ?viewModel}):
+        _viewModel = viewModel ??  DefaultForgotPasswordViewModel();
+
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,27 +32,41 @@ class ForgotPassword extends StatelessWidget {
       ),
       body: Center(
         child: Container(
-          padding: EdgeInsets.all(30.0),
+          padding:const EdgeInsets.all(30.0),
           child: Column(
             children: [
               header_text(
-                  texto: "Forgot Password", color: primaryColor, fontSize: 30),
+                  texto: "Forgot Password", color: primaryColor, fontSize: 40),
               Container(
-                padding: const EdgeInsets.all(10.0),
+                padding: const EdgeInsets.all(30.0),
                 child: header_text(
                     texto:
                         "Please enter your email address. You will recive a link to create a new password via email.",
                     color: Colors.black,
+                    fontWeight: FontWeight.w400,
                     fontSize: 15),
               ),
-              _emailInput(),
+
+              TextFormFieldEmailUpdatePassword(viewModel: _viewModel,),
               createElevatedButton(
                   labelButton: 'Send',
                   color: naranja,
                   shape: const StadiumBorder(),
                   func: () {
-                    _showAlerta(context);
-                  })
+                    _ctaBottonTapped(context);
+                  }),
+              Container(
+                margin: const EdgeInsets.only(top: 40),
+                width: 500,
+                height: 290,
+                child: const Image(
+                  image: AssetImage('assets/forgot.png'),
+                  fit: BoxFit.cover
+                  ,
+                ),
+              ),
+
+
             ],
           ),
         ),
@@ -47,36 +75,25 @@ class ForgotPassword extends StatelessWidget {
   }
 }
 
-Widget _emailInput() {
-  return Container(
-    margin: const EdgeInsets.only(top: 20.0),
-    padding: const EdgeInsets.only(left: 10.0),
-    decoration: BoxDecoration(
-        color: bgInputs, borderRadius: BorderRadius.circular(30.0)),
-    child: const TextField(
-      keyboardType: TextInputType.emailAddress,
-      decoration: InputDecoration(
-          hintText: 'Your email',
-          border: OutlineInputBorder(borderSide: BorderSide.none)),
-    ),
-  );
+
+extension UserAction on _ForgotPasswordState{
+  void _ctaBottonTapped(BuildContext context) {
+    _viewModel.updatePassword().then((value) {
+      ShowAlertDialog(
+          context,
+         const AssetImage('assets/lock.png'),
+          'Your password has been reset.',
+          "You'll  shortly receive an email whith a code to setup a new password.",
+          createElevatedButton(
+              labelButton: 'Done',
+              color: naranja,
+              shape: const StadiumBorder(),
+              func: () {
+                Navigator.pushNamed(context, 'Login');
+              }));
+    });
+
+  }
+
 }
 
-void _showAlerta(BuildContext context) {
-  ShowAlertDialog(
-      context,
-      AssetImage('assets/lock.png'),
-      'Your password has been reset.',
-      "You'll  shortly receive an email whith a code to setup a new password.",
-      createElevatedButton(
-          labelButton: 'Done',
-          color: naranja,
-          shape: const StadiumBorder(),
-          func: () {
-            Navigator.pushNamed(context, 'Login');
-          }));
-}
-
-_goToLoginPage(BuildContext context) {
-  Navigator.pushNamed(context, 'Login');
-}
