@@ -1,8 +1,8 @@
 import 'dart:convert';
 
-import '../../UseCases/User/SaveUserDataUseCase/SaveUserDataUseCaseParameters.dart';
+import '../../../../features/Domain/UseCases/User/SaveUserDataUseCase/SaveUserDataUseCaseParameters.dart';
 
-class UserEntity{
+class UserEntity {
   UserEntity({
     this.localId,
     this.role,
@@ -36,17 +36,17 @@ class UserEntity{
   String toJson() => json.encode(toMap());
 
   factory UserEntity.fromMap(Map<String, dynamic> json) => UserEntity(
-      localId: json["localId"],
-      role: json["role"],
-      username: json["username"],
-      email: json["email"],
-      phone: json["phone"],
-      dateOfBirth: json["dateOfBirth"],
-      startDate: json["startDate"],
-      photo: json["photo"],
-      shippingAddress: json["shippingAddress"],
-      billingAddress: json["billingAddress"],
-      idToken: json["idToken"],
+    localId: json["localId"],
+    role: json["role"],
+    username: json["username"],
+    email: json["email"],
+    phone: json["phone"],
+    dateOfBirth: json["dateOfBirth"],
+    startDate: json["startDate"],
+    photo: json["photo"],
+    shippingAddress: json["shippingAddress"],
+    billingAddress: json["billingAddress"],
+    idToken: json["idToken"],
       provider: json["provider"]
   );
 

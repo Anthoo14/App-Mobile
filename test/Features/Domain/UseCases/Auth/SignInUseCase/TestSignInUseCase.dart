@@ -31,7 +31,7 @@ void main(){
           switch(result.status){
             case ResultStatus.success:
               expect(result.value, isA<SignInEntity>());
-
+              break;
             case ResultStatus.error:
               //THEN
               expect(result.error, Failure);

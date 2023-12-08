@@ -15,16 +15,17 @@ class DefaultSignInRepository extends SignInRepository {
   DefaultSignInRepository({SingInService? singInService})
       : _singInService = singInService ?? DefaultSingInService();
 
+
   @override
-  Future<Result<SingInDecodable, Failure>> SignIn(
-      {required SignInBodyParameters parameters})async {
+  Future<Result<SingInDecodable, Failure>> signIn({required SignInBodyParameters params}) async{
+
     try{
-    final result = await _singInService.singIn(bodyParameters: parameters.toMap());
-    SingInDecodable decodable = SingInDecodable.fromMap(result);
-    return Result.success(decodable);
+      final result = await _singInService.singIn(bodyParameters: params.toMap());
+      SingInDecodable decodable = SingInDecodable.fromMap(result);
+      return Result.success(decodable);
 
     }on Failure catch(f){
-return Result.failure(Failure.getFirebaseAuthErrorMessage(error: f.error));
-    }
+      return Result.failure(Failure.getFirebaseAuthErrorMessage(error: f.error));
   }
 }
+  }

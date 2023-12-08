@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "685782850178",
+    "firebase_url": "https://delivery-app-thefix-default-rtdb.firebaseio.com",
+    "project_id": "delivery-app-thefix",
+    "storage_bucket": "delivery-app-thefix.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:685782850178:android:1c51719833fe54ee2a329b",
+        "android_client_info": {
+          "package_name": "com.zarek.thefix"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "685782850178-5hm8ee1kij5ea4noi9mqcarg75a7i1an.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.zarek.thefix",
+            "certificate_hash": "aa77728848bc6fab5c3fff88ab04e005c5facfb7"
+          }
+        },
+        {
+          "client_id": "685782850178-5eqskvhbg5ern0r8rjln53jt3tvp7c09.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBLKkIRtTcpMJMTZXS2yIcrgGrmXZlSVXA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "685782850178-5eqskvhbg5ern0r8rjln53jt3tvp7c09.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "685782850178-tgkcu7o30lnluh463j4q7d9b1ftl64qs.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.zarek.thefix"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,38 +1,38 @@
-import 'package:flutter_vscode/src/Base/ApiService/appError.dart';
-import 'package:flutter_vscode/src/Base/Constants/ErrorMessage.dart';
-import 'package:flutter_vscode/src/Services/FirebaseService/RealtimeDatabase/Interfaces/interfaces.dart';
-import 'package:flutter_vscode/src/Services/FirebaseService/RealtimeDatabase/Service/RealtimeDatabaseService.dart';
-import 'package:flutter_vscode/src/features/data/Decodables/User/UserDecodable.dart';
-import 'package:flutter_vscode/src/features/data/Repositories/User/UserBodyParameters.dart';
-import 'package:flutter_vscode/src/features/domain/Interfaces/Interfaces.dart';
-import 'package:flutter_vscode/src/utils/Helpers/ResultType/ResultType.dart';
+import '../../../../Base/AppError/AppError.dart';
+import '../../../../Base/Constants/ErrorMessages.dart';
+import '../../../../Services/FirebaseServices/FirebaseRealTimeDatabaseService/Interfaces/Interfaces.dart';
+import '../../../../Services/FirebaseServices/FirebaseRealTimeDatabaseService/Services/RealtimeDataBaseService.dart';
+import '../../../../Utils/Helpers/ResultType/ResultType.dart';
+import '../../Decodables/User/UserDecodable.dart';
+import 'UserBodyParameters.dart';
 
 abstract class _Paths {
   static String userCollection = "users/";
 }
 
-class DefaultSaveUserDataRepository extends SaveUserDataRepository {
-  //Dependencies
- final RealtimeDatabaseService _realtimeDatabaseService;
+abstract class SaveUserDataRepository {
+  Future<Result<UserDecodable, Failure>> saveUserData({ required UserBodyParameters params });
+}
 
-  DefaultSaveUserDataRepository(
-      {RealtimeDatabaseService? realtimeDatabaseService})
-      : _realtimeDatabaseService =
-            realtimeDatabaseService ?? DefaultRealtimeDatabaseService();
+class DefaultSaveUserDataRepository extends SaveUserDataRepository {
+  
+  // * Dependencies
+  final RealtimeDataBaseService _realtimeDataBaseService;
+
+  DefaultSaveUserDataRepository({ RealtimeDataBaseService? realtimeDataBaseService })
+          : _realtimeDataBaseService = realtimeDataBaseService ?? DefaultRealtimeDatabaseService();
 
   @override
-  Future<Result<UserDecodable, Failure>> saveUserData(
-      {required UserBodyParameters parameters}) async {
-    if (parameters.localId == null) {
-      return Result.failure(Failure.fromMessage(
-          message: AppFailureMessage.unExpectedErrrorMessage));
+  Future<Result<UserDecodable, Failure>> saveUserData({ required UserBodyParameters params }) async {
+
+    if (params.localId == null) {
+      return Result.failure(Failure.fromMessage(message: AppFailureMessages.unExpectedErrorMessage));
     }
-    // Created Path
-    var path = _Paths.userCollection + parameters.localId!;
+
+    var path = _Paths.userCollection + params.localId!;
 
     try {
-      final result = await _realtimeDatabaseService.putData(
-          bodyparameters: parameters.toMap(), path: path);
+      final result = await _realtimeDataBaseService.putData(bodyParameters: params.toMap(), path: path);
       UserDecodable decodable = UserDecodable.fromMap(result);
       return Result.success(decodable);
     } on Failure catch (f) {

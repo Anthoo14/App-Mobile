@@ -1,6 +1,6 @@
 {
-    "name": "flutter_vscode",
-    "short_name": "flutter_vscode",
+    "name": "delivery",
+    "short_name": "delivery",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

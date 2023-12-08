@@ -1,21 +1,16 @@
+enum ResultStatus { success, error }
 
-enum ResultStatus{success,error}
-
-class Result<T,E>{
+class Result<T, E> {
   final E? error;
   final T? value;
   final ResultStatus status;
 
-
   Result.success(this.value)
-  : status= ResultStatus.success,
-  error = null;
-
+      : status = ResultStatus.success,
+        error = null;
   Result.failure(this.error)
-  : status= ResultStatus.error,
-  value=null;
+      : status = ResultStatus.error,
+        value = null;
 
-
-  Result(this.error,this.status,this.value);
+  Result(this.status, this.error, this.value);
 }
-

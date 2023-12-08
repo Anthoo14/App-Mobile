@@ -36,6 +36,7 @@ void main(){
               //then
                 expect(result.value, isA<SignUpEntity>());
                 print("correct test");
+                break;
               case ResultStatus.error:
             //then
               expect(result.error,Failure);

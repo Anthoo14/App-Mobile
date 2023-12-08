@@ -1,54 +1,53 @@
+
+
 import 'dart:convert';
 
-class CorrectPostBodyParameters {
-  String? title;
-  String? body;
-  int? userId;
-
-  CorrectPostBodyParameters({
+class CorrectPostBodyParams {
+  CorrectPostBodyParams({
     this.title,
     this.body,
     this.userId,
   });
 
-  factory CorrectPostBodyParameters.fromRawJson(String str) =>
-      CorrectPostBodyParameters.fromMap(json.decode(str));
-
-  String toRawJson() => json.encode(toMap());
-
-  factory CorrectPostBodyParameters.fromMap(Map<String, dynamic> json) =>
-      CorrectPostBodyParameters(
-        title: json["title"],
-        body: json["body"],
-        userId: json["userId"],
-      );
-
-  Map<String, dynamic> toMap() => {
-        "title": title,
-        "body": body,
-        "userId": userId,
-      };
-}
-
-
-class CorrectPutBodyParameters {
-  String? id;
   String? title;
   String? body;
   int? userId;
 
-  CorrectPutBodyParameters({
+  factory CorrectPostBodyParams.fromJson(String str) => CorrectPostBodyParams.fromMap(json.decode(str));
+
+  String toJson() => json.encode(toMap());
+
+  factory CorrectPostBodyParams.fromMap(Map<String, dynamic> json) => CorrectPostBodyParams(
+    title: json["title"],
+    body: json["body"],
+    userId: json["userId"],
+  );
+
+  Map<String, dynamic> toMap() => {
+    "title": title,
+    "body": body,
+    "userId": userId,
+  };
+}
+
+class CorrectPutBodyParams {
+  CorrectPutBodyParams({
     this.id,
     this.title,
     this.body,
     this.userId,
   });
 
-  factory CorrectPutBodyParameters.fromRawJson(String str) => CorrectPutBodyParameters.fromJson(json.decode(str));
+  int? id;
+  String? title;
+  String? body;
+  int? userId;
 
-  String toRawJson() => json.encode(toMap());
+  factory CorrectPutBodyParams.fromJson(String str) => CorrectPutBodyParams.fromMap(json.decode(str));
 
-  factory CorrectPutBodyParameters.fromJson(Map<String, dynamic> json) => CorrectPutBodyParameters(
+  String toJson() => json.encode(toMap());
+
+  factory CorrectPutBodyParams.fromMap(Map<String, dynamic> json) => CorrectPutBodyParams(
     id: json["id"],
     title: json["title"],
     body: json["body"],
@@ -62,4 +61,3 @@ class CorrectPutBodyParameters {
     "userId": userId,
   };
 }
-

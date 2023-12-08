@@ -1,6 +1,4 @@
-
-
-import '../../../Entities/User/UserEntity.dart';
+import 'package:delivery/src/Features/Domain/Entities/User/UserEntity.dart';
 
 class SaveUserDataUseCaseParameters {
   SaveUserDataUseCaseParameters({
@@ -43,7 +41,7 @@ class SaveUserDataUseCaseParameters {
     shippingAddress = user.shippingAddress;
     billingAddress = user.billingAddress;
     idToken = user.idToken;
-
+    provider = user.provider;
   }
 
   Map<String, dynamic> toMap() => {
@@ -58,5 +56,6 @@ class SaveUserDataUseCaseParameters {
     "shippingAddress": shippingAddress,
     "billingAddress": billingAddress,
     "idToken": billingAddress == null ? null : idToken,
+    "provider": provider
   };
 }

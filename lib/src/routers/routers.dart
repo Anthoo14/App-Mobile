@@ -1,29 +1,30 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_vscode/src/features/presentation/Collection_Detail_Page/View/Collection_Detail_Page.dart';
-import 'package:flutter_vscode/src/features/presentation/CollectionsPage/View/collectionsView.dart';
-import 'package:flutter_vscode/src/features/presentation/CreateAccountPage/View/CreateAccount.dart';
-import 'package:flutter_vscode/src/features/presentation/ForgotPasswordPage/View/ForgotPassword.dart';
-import 'package:flutter_vscode/src/features/presentation/Places_Detail_Page/View/places_detail_page.dart';
-import 'package:flutter_vscode/src/features/presentation/Profile_Detail_Page/View/profile_detail.dart';
-import 'package:flutter_vscode/src/features/presentation/SearchPage/View/searchView.dart';
 
-//pages
-import 'package:flutter_vscode/src/features/presentation/WelcomePage/View/WelcomePage.dart';
-import 'package:flutter_vscode/src/features/presentation/LoginPage/View/LoginPage.dart';
-import 'package:flutter_vscode/src/features/presentation/filterPage/View/filterPage.dart';
-import 'package:flutter_vscode/src/features/presentation/tabs/ExploreTab/View/ExploreTab.dart';
-import 'package:flutter_vscode/src/features/presentation/tabs/tabs.dart';
+
+import '../features/presentation/Auth/LoginPage/View/LoginPage.dart';
+import '../features/presentation/Auth/SignUpPage/View/SignUpPage.dart';
+import '../features/presentation/Auth/UpdatePasswordPage/View/UpdatePasswordPageView.dart';
+import '../features/presentation/Auth/WelcomePage/View/WelcomePage.dart';
+import '../features/presentation/CheckoutPage/View/CheckoutPage.dart';
+import '../features/presentation/Profile/ChangePaymentsMethodsPage/View/ChangePaymentsMethodsPage.dart';
+import '../features/presentation/Profile/EditEmailPage/View/EditEmailPage.dart';
+import '../features/presentation/Profile/EditPasswordPage/View/EditPasswordPage.dart';
+import '../features/presentation/Profile/ProfileDetailPage/View/ProfileDetailPageView.dart';
+import '../features/presentation/Shared/MainCoordinator/MainCoordinator.dart';
+import '../features/presentation/tabs/TabsPage/View/TabsPage.dart';
+
+
 
 final routes = <String, WidgetBuilder>{
-  'Welcome': (BuildContext context) => WelcomePage(),
-  'Login': (BuildContext context) => LoginPage(),
-  'ForgotPass': (BuildContext context) => ForgotPassword(),
-  'CreateAccount': (BuildContext context) => CreateAccount(),
-  'Tabs': (BuildContext context) => tabsPage(),
-  'Search': (BuildContext context) => SearchPage(),
-  'Filter': (BuildContext context) => FilterPage(),
-  'Collection': (BuildContext context) => CollectionsPage(),
-  'CollectionsDetail': (BuildContext context) => CollectionsDetail(),
-  'PlaceDetail': (BuildContext context) => PlaceDetailPage(),
-  'ProfileDetail': (BuildContext context) => ProfileDetailPage()
+  'welcome': (BuildContext context) => WelcomePage(),
+  'login': (BuildContext context) => LoginPage(),
+  'forgot-password': (BuildContext context) => UpdatePasswordPage(),
+  'sign-up': (BuildContext context) => SignUpPage(),
+  'Tabs': (BuildContext context) => const TabsPage(),
+  'profile-detail': (BuildContext context) => const ProfileDetailPage(),
+  'checkout': (BuildContext context) => CheckOutPage(),
+  RoutesPaths.editPasswordPath : (BuildContext context) => const EditPasswordPage(),
+  RoutesPaths.editEmailPath : (BuildContext context) => const EditEmailPage(),
+  RoutesPaths.changePaymentMethodsPath : (BuildContext context) => const ChangePaymentsMethodsPage()
+
 };
